@@ -3,10 +3,11 @@
 
 #include <stdbool.h>
 
-#define _DEFAULT_FORMAT "/etc/proftpd/%u.conf"
+#define MODULE_NAME dynamic_include_module.name
+#define DEFAULT_FORMAT "/etc/proftpd/%u.conf"
 
-static const char * const MODULE_NAME = "mod_dynamic_include";
-static char *path_format = _DEFAULT_FORMAT;
+module dynamic_include_module;
+static char *path_format = DEFAULT_FORMAT;
 
 static bool is_secure_path(const char *path) {
 
