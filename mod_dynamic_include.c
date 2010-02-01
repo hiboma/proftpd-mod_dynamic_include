@@ -81,6 +81,12 @@ MODRET dynamic_include_post_pass(cmd_rec *cmd) {
     }
   }
 
+  if (pr_parser_cleanup() < 0) {
+      pr_log_pri(PR_LOG_ERR, "Fatal: error processing configuration file '%s': "
+       "unclosed configuration section", conf);
+      end_login(1);
+  }
+
   return PR_DECLINED(cmd);
 }
 
