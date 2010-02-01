@@ -49,9 +49,6 @@ MODRET dynamic_include_post_pass(cmd_rec *cmd) {
   conf = sreplace(cmd->tmp_pool, path_format,
               "%u", pstrdup(cmd->tmp_pool, user), NULL);
 
-  pr_log_debug(DEBUG3,
-    "%s: try to Include '%s'", MODULE_NAME, conf);
-
   if(!is_secure_path(conf)) {
     pr_log_pri(PR_LOG_WARNING,
       "%s: config path is insecure '%s'", MODULE_NAME, conf);
