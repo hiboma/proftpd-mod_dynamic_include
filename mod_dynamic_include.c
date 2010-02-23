@@ -70,7 +70,12 @@ MODRET dynamic_include_post_pass(cmd_rec *cmd) {
       pr_log_debug(DEBUG3,
         "%s: OK parse_config_path('%s')", MODULE_NAME, conf);
   } else {
-    if (errno != EINVAL)
+    if (errno == ENOENT) {
+      pr_log_debug(DEBUG3,
+        "%s: '%s' not found. ignored", MODULE_NAME, conf);
+      return PR_DECLINED(cmd);
+    }
+    else if (errno != EINVAL)
       pr_log_pri(PR_LOG_WARNING, "warning: unable to include '%s': %s",
         conf, strerror(errno));
     else {
