@@ -1,0 +1,22 @@
+# Created by http://gitignore.io
+
+### C ###
+# Object files
+*.o
+*.lo
+
+# Libraries
+*.libs
+*.a
+*.la
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
