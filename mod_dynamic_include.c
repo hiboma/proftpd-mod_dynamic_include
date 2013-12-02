@@ -36,7 +36,7 @@ MODRET dynamic_include_post_pass(cmd_rec *cmd) {
   const char *conf = NULL;
   char *user = NULL;
 
-  user = get_param_ptr(cmd->server->conf, C_USER, FALSE);
+  user = get_param_ptr(cmd->server->conf, "UserName", FALSE);
 
 #ifdef _SUPPORT_SUBACCOUNT
   char *found;
