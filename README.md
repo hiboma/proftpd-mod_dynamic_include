@@ -1,15 +1,13 @@
 # mod_dynamic_include.c
 
-## description
+## Description
 
- * クライアントが接続した時に動的に設定ファイルを読み込みProftpdモジュール
- * アカウント別に大量の設定ファイルを管理する必要がある環境で便利だと思います
-   * ex. 共有ホスティングサーバーなど
+Load proftpd configuration dynamically on Login phase
 
-## usage
+## Usage
 
- * /etc/proftpd.conf
-    
+/etc/proftpd.conf
+
 ```
 LoadModule mod_dynamic_include.c
 DynamicIncludePath /etc/proftpd/%u.conf
@@ -19,4 +17,11 @@ DynamicIncludePath /etc/proftpd/%u.conf
 
 ```
 %u               user name ( sent by 'USER' command )
+```
+
+## Development
+
+```
+# build && testing
+$ vagrant up
 ```
