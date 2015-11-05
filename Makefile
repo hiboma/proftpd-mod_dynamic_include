@@ -1,12 +1,11 @@
-
 PRXS_DIR=/usr/bin
 PRXS=$(PRXS_DIR)/prxs
 SOURCE=mod_dynamic_include.c
 
-mod_libmemcached_deny.so:
-	$(PRXS) -c $(SOURCE) 
+mod_dynamic_include:
+	$(PRXS) -c $(SOURCE)
 
-install: mod_libmemcached_deny.so
+install: mod_dynamic_include.so
 	$(PRXS) $(SOURCE) -i
 
 clean:
